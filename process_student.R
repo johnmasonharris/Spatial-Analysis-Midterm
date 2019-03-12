@@ -38,13 +38,15 @@ z = write.table(z, "macrozooplankton.txt", sep="\t")
 #Egg data Set-----
 
 #read in data set
-e <-
+e <- read.csv(file = "erdCalCOFIcufes_bb4a_5c83_ad3a.csv")
+e = as.data.frame(e)
 
 #turn these character fields into date-time field
-e$stop_time_UTC <-
+e$stop_time_UTC <- e$time_UTC
 e$time_UTC <- gsub(x = e$time_UTC, pattern = "T", replacement = " ")
-e$time_UTC <-
+e$time_UTC <- gsub(x = e$time_UTC, pattern = "Z", replacement = " ")
 
-e <- e[,c(1:4,29,5:26)]
+e <- e[,c(1:26)]
 
 #export data
+e = write.table(e, "eggs.txt", sep="\t")
