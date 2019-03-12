@@ -26,10 +26,6 @@ z$dateTime <- str_c(z$Tow_Date, " ", z$Tow_Time, ":00")
 z$dateTime <- as.POSIXct(strptime(z$dateTime, "%m/%d/%Y %H:%M:%S", tz = "America/Los_Angeles")) #Hint: look up input time formats for the 'strptime' function
 z$tow_date <- NULL; z$tow_time <- NULL
 
-# keep only certain columns
-z <- z[,c("ID", "Cruise","CruiseAlias", "lat", "lon", "Sta_ID", "Cruz_Sta", "Ship_Code", "Order_Occ", "Cruz_Code", "St_Line", "St_Station", 
-          "Tow_Type", "Net_Loc", "End_Time", "Vol_StrM3", "Tow_DpthM", "Ttl_PVolC3", "Sml_PVolC3", "HaulFact", "dateTime")]
-
 #export data as tab delimited file
 write.table(z, file = "macrozooplankton.txt", row.names = F)
 write.csv(z, file = "macrozooplankton.csv", row.names = F)
