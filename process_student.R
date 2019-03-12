@@ -31,8 +31,8 @@ z <- z[,c("ID", "Cruise","CruiseAlias", "lat", "lon", "Sta_ID", "Cruz_Sta", "Shi
           "Tow_Type", "Net_Loc", "End_Time", "Vol_StrM3", "Tow_DpthM", "Ttl_PVolC3", "Sml_PVolC3", "HaulFact", "dateTime")]
 
 #export data as tab delimited file
-z = write.table(z, "macrozooplankton.txt", sep="\t")
-
+write.table(z, file = "macrozooplankton.txt", row.names = F)
+write.csv(z, file = "macrozooplankton.csv", row.names = F)
 
 
 #Egg data Set-----
@@ -49,4 +49,7 @@ e$time_UTC <- gsub(x = e$time_UTC, pattern = "Z", replacement = " ")
 e <- e[,c(1:26)]
 
 #export data
-e = write.table(e, "eggs.txt", sep="\t")
+write.table(e, file = "eggs.txt", row.names = F)
+write.csv(e, file = "eggs.csv", row.names = F)
+
+
