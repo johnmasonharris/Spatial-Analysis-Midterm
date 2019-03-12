@@ -45,7 +45,7 @@ e$time_UTC <- gsub(x = e$time_UTC, pattern = "Z", replacement = " ")
 e <- e[,c(1:26)]
 
 #export data
-write.table(e, file = "eggs.txt", row.names = F)
+write.table(e, file = "eggs.txt", sep = "\t", row.names = F)
 write.csv(e, file = "eggs.csv", row.names = F)
 
 
